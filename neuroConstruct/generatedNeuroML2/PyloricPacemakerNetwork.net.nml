@@ -3,35 +3,35 @@
 
     <notes>
 
-Network structure (NeuroML 2beta1) for project: PyloricPacemakerNetwork saved with neuroConstruct v1.7.0 on: 19:06:30, 09-Dec-13
+Network structure (NeuroML 2beta1) for project: PyloricPacemakerNetwork saved with neuroConstruct v1.7.0 on: 11:16:48, 10-Dec-13
 
 Cell Group: AB_PD contains 1 cells
 Cell Group: PY contains 1 cells
 Cell Group: LP contains 1 cells
 
-Network connection: PD_LP contains 1 individual synaptic connections
-Network connection: PY_LP contains 1 individual synaptic connections
-Network connection: AB_PY contains 1 individual synaptic connections
-Network connection: AB_LP contains 1 individual synaptic connections
-Network connection: LP_PY contains 1 individual synaptic connections
-Network connection: LP_ABPD contains 1 individual synaptic connections
-Network connection: PD_PY contains 1 individual synaptic connections
+Network connection: NetConn_LP_PY contains 1 individual synaptic connections
+Network connection: NetConn_LP_AB_PD contains 1 individual synaptic connections
+Network connection: NetConn_AB_PD_LP_1 contains 1 individual synaptic connections
+Network connection: NetConn_AB_PD_PY_2 contains 1 individual synaptic connections
+Network connection: NetConn_AB_PD_LP contains 1 individual synaptic connections
+Network connection: NetConn_PY_LP contains 1 individual synaptic connections
+Network connection: NetConn_AB_PD_PY_1 contains 1 individual synaptic connections
 
 
     </notes>
 
 
     <include href="AB_PD.cell.nml"/>
-    <include href="Ach_PD_LP.synapse.nml"/>
-    <include href="Ach_PD_PY.synapse.nml"/>
+    <include href="Ach_PD_LP_30nS.synapse.nml"/>
+    <include href="Ach_PD_PY_3nS.synapse.nml"/>
     <include href="CaPool_STG.nml"/>
     <include href="CaS_STG.channel.nml"/>
     <include href="CaT_STG.channel.nml"/>
-    <include href="Glu_AB_LP.synapse.nml"/>
+    <include href="Glu_AB_LP_30nS.synapse.nml"/>
     <include href="Glu_AB_PY.synapse.nml"/>
-    <include href="Glu_LP_ABPD.synapse.nml"/>
-    <include href="Glu_LP_PY.synapse.nml"/>
-    <include href="Glu_PY_LP.synapse.nml"/>
+    <include href="Glu_LP_ABPD_30nS.synapse.nml"/>
+    <include href="Glu_LP_PY_1nS.synapse.nml"/>
+    <include href="Glu_PY_LP_30nS.synapse.nml"/>
     <include href="H_STG.channel.nml"/>
     <include href="KA_STG.channel.nml"/>
     <include href="KCa_STG.channel.nml"/>
@@ -64,31 +64,31 @@ Network connection: PD_PY contains 1 individual synaptic connections
 
 
 
-        <projection id="PD_LP" presynapticPopulation="AB_PD" postsynapticPopulation="LP" synapse="Ach_PD_LP">
-            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
-
-        <projection id="PY_LP" presynapticPopulation="PY" postsynapticPopulation="LP" synapse="Glu_PY_LP">
-            <connection id="0" preCellId="../PY/0/PY" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
-
-        <projection id="AB_PY" presynapticPopulation="AB_PD" postsynapticPopulation="PY" synapse="Glu_AB_PY">
-            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../PY/0/PY" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
-
-        <projection id="AB_LP" presynapticPopulation="AB_PD" postsynapticPopulation="LP" synapse="Glu_AB_LP">
-            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
-
-        <projection id="LP_PY" presynapticPopulation="LP" postsynapticPopulation="PY" synapse="Glu_LP_PY">
+        <projection id="NetConn_LP_PY" presynapticPopulation="LP" postsynapticPopulation="PY" synapse="Glu_LP_PY_1nS">
             <connection id="0" preCellId="../LP/0/LP" postCellId="../PY/0/PY" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
 
-        <projection id="LP_ABPD" presynapticPopulation="LP" postsynapticPopulation="AB_PD" synapse="Glu_LP_ABPD">
+        <projection id="NetConn_LP_AB_PD" presynapticPopulation="LP" postsynapticPopulation="AB_PD" synapse="Glu_LP_ABPD_30nS">
             <connection id="0" preCellId="../LP/0/LP" postCellId="../AB_PD/0/AB_PD" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
 
-        <projection id="PD_PY" presynapticPopulation="AB_PD" postsynapticPopulation="PY" synapse="Ach_PD_PY">
+        <projection id="NetConn_AB_PD_LP_1" presynapticPopulation="AB_PD" postsynapticPopulation="LP" synapse="Ach_PD_LP_30nS">
+            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+
+        <projection id="NetConn_AB_PD_PY_2" presynapticPopulation="AB_PD" postsynapticPopulation="PY" synapse="Glu_AB_PY">
+            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../PY/0/PY" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+
+        <projection id="NetConn_AB_PD_LP" presynapticPopulation="AB_PD" postsynapticPopulation="LP" synapse="Glu_AB_LP_30nS">
+            <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+
+        <projection id="NetConn_PY_LP" presynapticPopulation="PY" postsynapticPopulation="LP" synapse="Glu_PY_LP_30nS">
+            <connection id="0" preCellId="../PY/0/PY" postCellId="../LP/0/LP" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+
+        <projection id="NetConn_AB_PD_PY_1" presynapticPopulation="AB_PD" postsynapticPopulation="PY" synapse="Ach_PD_PY_3nS">
             <connection id="0" preCellId="../AB_PD/0/AB_PD" postCellId="../PY/0/PY" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
 
